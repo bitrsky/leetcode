@@ -1,3 +1,4 @@
+//package leetcode
 /*
  * @lc app=leetcode.cn id=3 lang=golang
  *
@@ -36,7 +37,22 @@
  * 
  * 
  */
+ //lastLocation[v] 表示字符v上一次出现的位置
+ // left 不重复的第一个字符的位置
 func lengthOfLongestSubstring(s string) int {
-    
+	lastLocation,max,left := map[rune]int{},0,0
+	for index,v := range s {
+		if b,ok := lastLocation[v]; ok && b >= left {
+			if index - left > max {
+				max = index - left
+			}
+			left = b+1
+		}
+		lastLocation[v] = index
+	}
+	if len(s) - left > max {
+		max = len(s) - left
+	}
+	return max
 }
 
