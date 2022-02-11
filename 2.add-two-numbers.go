@@ -1,4 +1,4 @@
-// package main
+package main
 
 /*
  * @lc app=leetcode id=2 lang=golang
@@ -108,27 +108,9 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 }
 
 // @lc code=end
-/*
+
 func main() {
 	l1 := buildList([]int{9, 9, 9})
 	l2 := buildList([]int{1})
 	printList(addTwoNumbers(l1, l2))
 }
-
-func printList(l *ListNode) {
-	for ; l != nil; l = l.Next {
-		fmt.Print(l.Val)
-	}
-	fmt.Println()
-}
-
-func buildList(list []int) *ListNode {
-	head := &ListNode{}
-	l := head
-	for _, val := range list {
-		l.Next = &ListNode{Val: val}
-		l = l.Next
-	}
-	return head.Next
-}
-*/

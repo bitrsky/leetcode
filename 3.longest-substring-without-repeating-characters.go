@@ -1,4 +1,6 @@
-//package main
+package main
+
+import "fmt"
 
 /*
  * @lc app=leetcode id=3 lang=golang
@@ -78,10 +80,8 @@ func lengthOfLongestSubstring(s string) int {
 	return max
 }
 
-/*
+// @lc code=end
+
 func main() {
 	fmt.Println(lengthOfLongestSubstring("pwwkew"))
 }
-*/
-
-// @lc code=end

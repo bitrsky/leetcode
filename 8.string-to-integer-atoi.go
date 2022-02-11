@@ -1,6 +1,7 @@
-//package main
+package main
 
 import (
+	"fmt"
 	"math"
 )
 
@@ -162,10 +163,8 @@ func myAtoi(s string) int {
 	return ans
 }
 
-/*
+// @lc code=end
+
 func main() {
 	fmt.Println(myAtoi("   000042"))
 }
-*/
-
-// @lc code=end

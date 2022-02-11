@@ -1,0 +1,3 @@
+[go-run]
+  command = 'go run'
+  args = ['${relativeFileDirname}lib_listNode.go ${fileBasename}']

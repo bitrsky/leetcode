@@ -1,4 +1,6 @@
-//package main
+package main
+
+import "fmt"
 
 /*
  * @lc app=leetcode id=9 lang=golang
@@ -74,10 +76,7 @@ func isPalindrome(x int) bool {
 	return reverse == ori
 }
 
-/*
+// @lc code=end
 func main() {
 	fmt.Println(isPalindrome(121))
 }
-*/
-
-// @lc code=end

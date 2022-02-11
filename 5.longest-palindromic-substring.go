@@ -1,6 +1,6 @@
-//package main
+package main
 
-//import "fmt"
+import "fmt"
 
 /*
  * @lc app=leetcode id=5 lang=golang
@@ -80,10 +80,7 @@ func longestPalindrome(s string) string {
 	return pal
 }
 
-/*
+// @lc code=end
 func main() {
 	fmt.Println(longestPalindrome("a"))
 }
-*/
-
-// @lc code=end
