@@ -1,3 +1,7 @@
+package main
+
+import "fmt"
+
 /*
  * @lc app=leetcode id=6 lang=golang
  *
@@ -72,7 +76,26 @@
 
 // @lc code=start
 func convert(s string, numRows int) string {
+	ls := len(s)
+	if numRows == 1 || ls <= numRows {
+		return s
+	}
 
+	ans := make([]byte, 0, ls)
+	mod := 2*numRows - 2
+	for i := 0; i < numRows; i++ {
+		for j := 0; j+i < ls; j += mod {
+			ans = append(ans, s[j+i])
+			if i > 0 && i < numRows-1 && j+mod-i < ls {
+				ans = append(ans, s[j+mod-i])
+			}
+		}
+	}
+	return string(ans)
 }
 
 // @lc code=end
+func main() {
+	fmt.Println(convert("QA", 1))
+
+}
