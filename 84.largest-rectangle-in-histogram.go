@@ -51,17 +51,22 @@ import "fmt"
 
 // @lc code=start
 func largestRectangleArea(heights []int) int {
-	area, curI, minH, maxA := 0, 0, heights[0], 0
-	for i := 0; i < len(heights); i++ {
-		if minH > heights[i] {
-			minH = heights[i]
+	n, maxA := len(heights), 0
+	ls, rs, s := make([]int, n), make([]int, n), [][2]int{{-1, -1}}
+	for i := 0; i < n; i++ {
+		rs[i] = n
+	}
+	for i := 0; i < n; i++ {
+		for ; heights[i] <= s[len(s)-1][0]; s = s[:len(s)-1] {
+			rs[s[len(s)-1][1]] = i
 		}
-		area = (i - curI + 1) * minH
+		ls[i] = s[len(s)-1][1]
+		s = append(s, [2]int{heights[i], i})
+	}
+	for i := 0; i < n; i++ {
+		area := heights[i] * (rs[i] - ls[i] - 1)
 		if area > maxA {
 			maxA = area
-		}
-		if area <= heights[i] {
-			minH, curI = heights[i], i
 		}
 	}
 	return maxA
@@ -69,6 +74,6 @@ func largestRectangleArea(heights []int) int {
 
 // @lc code=end
 func main() {
-	nums := []int{2, 1, 5, 6, 2, 3}
+	nums := []int{2, 4}
 	fmt.Println(largestRectangleArea(nums))
 }
